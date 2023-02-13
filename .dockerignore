@@ -1,0 +1,12 @@
+**/node_modules
+**/src
+**/.git
+**/*.Dockerfile
+**/Dockerfile
+**/*.env
+**/*.md
+**/*.log
+**/*.yaml
+**/tmp
+**/__test__
+**/coverage

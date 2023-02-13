@@ -1,0 +1,28 @@
+apiVersion: skaffold/v2alpha3
+
+kind: config
+
+deploy:
+  kubectl:
+    manifests:
+      - ./k8s/*.yaml
+
+build:
+  local:
+    push: false
+    
+  artifacts:
+    - image: andreadelligatti/receiver
+      context: .
+      docker:
+        dockerfile: ./packages/receiver/Dockerfile
+
+    - image: andreadelligatti/receiver-2
+      context: .
+      docker:
+        dockerfile: ./packages/receiver-2/Dockerfile
+
+    - image: andreadelligatti/sender
+      context: .
+      docker:
+        dockerfile: ./packages/sender/Dockerfile

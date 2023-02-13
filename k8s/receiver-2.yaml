@@ -1,0 +1,29 @@
+#########################################################
+# Receiver-2 service
+#########################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receiver-2
+spec:
+  selector:
+    matchLabels:
+      app: receiver-2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: receiver-2
+    spec:
+      containers:
+      - name: receiver-2
+        image: andreadelligatti/receiver-2
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: common-env
+        - configMapRef:
+            name: host-env
+        env:
+          - name: SERVICES
+            value: receiver-2

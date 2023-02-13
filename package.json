@@ -1,0 +1,30 @@
+{
+  "name": "@andreadelligatti/channels",
+  "version": "0.0.11",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "postinstall": "npm run bootstrap",
+    "bootstrap": "lerna bootstrap --no-ci",
+    "clean": "lerna clean -y && npm run clean:build",
+    "clean:build": "del-cli ./packages/*/build/**",
+    "build": "lerna run build",
+    "dev": "lerna run dev --stream",
+    "start": "lerna run start",
+    "changelog": "git-changelog-command-line -of CHANGELOG.md"
+  },
+  "author": "AndreaDelliGatti",
+  "license": "ISC",
+  "devDependencies": {
+    "del-cli": "^5.0.0",
+    "git-changelog-command-line": "^1.101.7",
+    "glob": "^8.0.3",
+    "lerna": "5.1.6",
+    "nx": "^14.6.4",
+    "typescript": "4.3.5"
+  }
+}

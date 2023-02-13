@@ -1,0 +1,29 @@
+#########################################################
+# Sender service
+#########################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sender
+spec:
+  selector:
+    matchLabels:
+      app: sender
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sender
+    spec:
+      containers:
+      - name: sender
+        image: andreadelligatti/sender
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: common-env
+        - configMapRef:
+            name: host-env
+        env:
+          - name: SERVICES
+            value: sender

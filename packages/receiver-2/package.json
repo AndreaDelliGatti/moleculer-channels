@@ -1,0 +1,30 @@
+{
+  "name": "@andreadelligatti/receiver-2",
+  "version": "0.0.11",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "prebuild": "del-cli ./build",
+    "build": "tsc --project .",
+    "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js -e --hot --repl --config src/moleculer.config.ts src/services/**/*.service.ts",
+    "start": "moleculer-runner --config build/moleculer.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@moleculer/channels": "0.1.4",
+    "amqplib": "0.8.0",
+    "ioredis": "^5.3.0",
+    "moleculer": "^0.14.21",
+    "nats": "^2.7.1"
+  },
+  "devDependencies": {
+    "moleculer-repl": "^0.7.2",
+    "ts-node": "^10.9.1"
+  }
+}
